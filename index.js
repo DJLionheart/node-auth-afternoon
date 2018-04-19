@@ -3,7 +3,10 @@ const express = require('express')
     , session = require('express-session')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
-    , students = require('./students.json');
+    , students = require('./students.json')
+
+    , app_login = 'http://localhost:3000/#/'
+    , app_studentList = 'http://localhost:3000/#/students'
 
 const app = express();
 
@@ -50,7 +53,7 @@ passport.deserializeUser( (obj, done) => {
 })
 
 app.get('/login', passport.authenticate('auth0',
-        { successRedirect: '/students', failureRedirect: '/login', connection: 'github'}
+        { successRedirect: app_studentList, failureRedirect: app_login, connection: 'github'}
         
     )
 );

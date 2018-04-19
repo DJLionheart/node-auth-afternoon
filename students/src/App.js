@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Switch, Route } from 'react-router-dom';
+import StudentList from './components/StudentList/StudentList';
 
 import Login from './components/Login/Login'
 
@@ -14,9 +15,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Atomic Student Portal</h1>
         </header>
-        <switch>
+        <Switch>
           <Route exact path="/" component={ Login }/>
-        </switch>
+          <Route path="/students" component={ StudentList } />
+        </Switch>
       </div>
     );
   }
